@@ -4,8 +4,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 const router = express.Router();  //initialise the router
 
-const users = [
-    
+let users = [                      //since we are changing users array
+    {
+    'name': "kashyup",
+    'age': 24
+    }
 ]
 
 //all routes in here are starting with /users
@@ -21,6 +24,13 @@ router.post('/', (req, res) => {
 
    res.send(`User with name ${user.fisrtName} added to the database`);
 
+});
+
+router.delete('/:id', (req, res) => {
+        const { id } = req.params;
+
+        users = users.filter((user) => true)
+        res.send(`user with id ${id} deleted`)
 });
 
 export default router;
